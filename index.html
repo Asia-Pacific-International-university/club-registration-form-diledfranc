@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Club Registration Form</title>
     <!-- TODO: Link your CSS file here in Step 2 -->
+     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
@@ -22,6 +23,23 @@
              - Club selection (select dropdown with at least 3 options)
              - Submit button
         -->
+        <form action="process.php" method="post">
+            <label for="name">Full Name</label><br>
+            <input type="text" id="name" name="name"><br>
+
+            <label for="email">Email Address</label><br>
+            <input type="email" id="email" name="email"><br>
+
+            <label for="club">Club</label><br>
+            <select name="club" id="club" name="club">
+                <option value="program_club" name="club">Programming Club</option>
+                <option value="drama_club" name="club">Drama Club</option>
+                <option value="music_club" name="club">Music Club</option>
+            </select><br>
+
+            <input type="submit" name="submit">
+            <!-- <button type="submit" name="submit">Submit</button><br> -->
+        </form>
     </main>
 
     <footer>

@@ -9,3 +9,46 @@ Requirements for Step 2:
 - Use at least 3 different CSS properties (color, background, padding, margin, border, etc.)
 - Make it look professional and easy to read
 */
+
+body {
+    display: flex;
+    flex-direction: column;
+    color: #333;
+    background-color: #f4f7f6;
+    margin: 0;
+    padding: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* text-align: center; */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 5px;
+}
+
+input {
+    color: #333;
+    padding: 12px 25px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-top: 5px; 
+    margin-bottom: 10px;
+
+}
+
+select {
+    color: #333;
+    padding: 12px 25px;
+    border: 1px solid #333;
+    border-radius: 10px;
+    margin-top: 5px; 
+    margin-bottom: 10px;
+}
+
+footer{
+    text-align: center;
+}
