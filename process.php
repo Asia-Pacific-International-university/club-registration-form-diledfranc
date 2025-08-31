@@ -27,4 +27,27 @@ Step 6 Requirements:
   - Search functionality
 */
 
+$name = $_POST["name"];
+$email = $_POST["email"];
+$club = $_POST["club"];
+
 ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Club Registration Form</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Thank You</h1>
+    <p>Here is the information you've submitted:</p>
+    <ol>
+      <li><b>Name: </b><?php echo $name ?></li>
+      <li><b>Email: </b><?php echo $email ?></li>
+      <li><b>Club: </b><?php echo $club ?></li>
+    </ol>
+</body>
+</html>
