@@ -27,10 +27,32 @@ Step 6 Requirements:
   - Search functionality
 */
 
-$name = $_POST["name"];
-$email = $_POST["email"];
-$club = $_POST["club"];
+//step 3
+// $name = $_POST["name"];
+// $email = $_POST["email"];
+// $club = $_POST["club"];
 
+$name = $email = $club = "";
+$errors = [];
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name = trim($_POST["name"] ?? "");
+    $email = trim($_POST["email"] ?? "");
+    $club = trim($_POST["club"] ?? "");
+
+    //step 4
+    if (empty($name)) {
+        $errors[] = "Name is required.";
+    }
+    if (empty($email)) {
+        $errors[] = "Email is required.";
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = "Invalid email format.";
+    }
+    if (empty($club)) {
+        $errors[] = "Club is required.";
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +65,23 @@ $club = $_POST["club"];
 </head>
 <body>
     <h1>Thank You</h1>
-    <p>Here is the information you've submitted:</p>
-    <ol>
-      <li><b>Name: </b><?php echo $name ?></li>
-      <li><b>Email: </b><?php echo $email ?></li>
-      <li><b>Club: </b><?php echo $club ?></li>
-    </ol>
+    <?php if ($_SERVER["REQUEST_METHOD"] == "POST"): ?>
+        <?php if (!empty($errors)): ?>
+            <div style="color:red;">
+                <ul>
+                    <?php foreach ($errors as $error): ?>
+                        <li><?php echo htmlspecialchars($error); ?></li>
+                    <?php endforeach; ?>
+                </ul>
+            </div>
+        <?php else: ?>
+            <p>Here is the information you've submitted:</p>
+            <ol>
+                <li><b>Name: </b><?php echo htmlspecialchars($name); ?></li>
+                <li><b>Email: </b><?php echo htmlspecialchars($email); ?></li>
+                <li><b>Club: </b><?php echo htmlspecialchars($club); ?></li>
+            </ol>
+        <?php endif; ?>
+    <?php endif; ?>
 </body>
 </html>
